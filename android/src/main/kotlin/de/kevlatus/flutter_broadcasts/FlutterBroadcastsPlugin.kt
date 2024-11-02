@@ -49,8 +49,10 @@ class CustomBroadcastReceiver(
     fun start(context: Context) {
         if (exported == 1) {
             context.registerReceiver(this, intentFilter, Context.RECEIVER_EXPORTED)
+            Log.d(TAG, "register broadcasts with: Context.RECEIVER_EXPORTED")
         } else {
             context.registerReceiver(this, intentFilter, Context.RECEIVER_NOT_EXPORTED)
+            Log.d(TAG, "register broadcasts with: Context.RECEIVER_NOT_EXPORTED")
         }
         Log.d(TAG, "starting to listen for broadcasts: " + names.joinToString(";"))
     }
